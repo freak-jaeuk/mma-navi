@@ -1,0 +1,26 @@
+{
+  "backend": "bge-llm",
+  "n": 22,
+  "answer": {
+    "n": 14,
+    "answer_rate": 0.857,
+    "avg_grounding": 0.897,
+    "errors": [
+      [
+        "자격증이 모집병 지원에 도움이 되나요?",
+        "불확실"
+      ],
+      [
+        "재검사는 어떤 경우에 신청하나요?",
+        "불확실"
+      ]
+    ]
+  },
+  "refuse": {
+    "n": 8,
+    "refuse_rate": 1.0,
+    "errors": []
+  },
+  "accuracy": 0.909,
+  "seconds": 23.6
+}

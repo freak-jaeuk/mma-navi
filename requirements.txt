@@ -1,0 +1,7 @@
+# 코어(백분위 엔진): 표준 라이브러리만 — 추가 설치 불필요
+#
+# 다음 단계(추후 추가):
+#   requests            # data.go.kr 오픈API 호출
+#   fastapi, uvicorn    # 백엔드 서빙
+#   FlagEmbedding       # bge-m3 임베딩 (상담 RAG)
+#   (로컬 LLM 서빙은 기존 SGLang/litellm 환경 재사용)

@@ -1,0 +1,17 @@
+# 비밀 — 절대 커밋 금지
+.env
+*.key
+secrets/
+
+# 파이썬
+__pycache__/
+*.pyc
+
+# 캐시 데이터
+data/cache/
+data/teukgi_index.json
+data/bmgg_by_region.json
+data/sojip_plan.json
+data/jeopsu_rate.json
+data/gongseok_by_region.json
+data/jinro_centers.json

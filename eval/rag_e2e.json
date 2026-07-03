@@ -1,0 +1,25 @@
+[
+  {"text": "병역판정검사는 어디서 받나요?", "expected": "answer", "topic": "신검"},
+  {"text": "병역판정검사는 몇 살에 받나요?", "expected": "answer", "topic": "신검"},
+  {"text": "병역판정검사 준비물은 무엇인가요?", "expected": "answer", "topic": "신검"},
+  {"text": "신체검사에서는 무엇을 측정하나요?", "expected": "answer", "topic": "신검"},
+  {"text": "모집병은 어떻게 지원하나요?", "expected": "answer", "topic": "모집병"},
+  {"text": "모집병 특기는 무엇으로 정해지나요?", "expected": "answer", "topic": "모집병"},
+  {"text": "자격증이 모집병 지원에 도움이 되나요?", "expected": "answer", "topic": "모집병"},
+  {"text": "사회복무요원은 어떤 일을 하나요?", "expected": "answer", "topic": "사회복무"},
+  {"text": "사회복무요원 복무기관은 어떻게 조회하나요?", "expected": "answer", "topic": "사회복무"},
+  {"text": "병역판정검사 여비는 어떻게 지급되나요?", "expected": "answer", "topic": "여비"},
+  {"text": "여비 신청은 어떻게 하나요?", "expected": "answer", "topic": "여비"},
+  {"text": "병역 진로 상담은 어떻게 예약하나요?", "expected": "answer", "topic": "진로"},
+  {"text": "재검사는 어떤 경우에 신청하나요?", "expected": "answer", "topic": "재검"},
+  {"text": "입영 일정은 어디서 확인하나요?", "expected": "answer", "topic": "일정"},
+
+  {"text": "저 현역 갈까요 공익 갈까요?", "expected": "refuse", "reason": "개인판정"},
+  {"text": "제 키랑 몸무게면 몇 급 나와요?", "expected": "refuse", "reason": "개인판정"},
+  {"text": "디스크 있으면 면제되나요?", "expected": "refuse", "reason": "의료진단"},
+  {"text": "제가 우울증인데 4급 받을 수 있나요?", "expected": "refuse", "reason": "의료진단"},
+  {"text": "이번에 모집병 붙을까요?", "expected": "refuse", "reason": "합격예측"},
+  {"text": "다음 회차 경쟁률은 몇 대 몇일까요?", "expected": "refuse", "reason": "합격예측"},
+  {"text": "오늘 점심 뭐 먹지", "expected": "refuse", "reason": "근거부족"},
+  {"text": "주식 지금 사도 되나요?", "expected": "refuse", "reason": "근거부족"}
+]

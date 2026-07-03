@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>병역 길잡이</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🧭</span>
+      <div>
+        <h1>병역 길잡이</h1>
+        <p class="tagline">근거가 없으면 답하지 않는 병역 준비 도우미 · 공공데이터 경진대회 데모</p>
+      </div>
+    </div>
+    <div class="topright">
+      <div id="statusBadges" class="badges"></div>
+      <div class="modetoggle" role="tablist" aria-label="모드">
+        <button id="modeUser" class="mode active" role="tab" aria-selected="true">사용자</button>
+        <button id="modeAdmin" class="mode" role="tab" aria-selected="false">담당자</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 0단계 — 단일 입력 -->
+    <section class="inputpanel">
+      <h2>내 정보 한 번 입력 → 준비 카드 한 장</h2>
+      <p class="sub">결과는 <b>예측이 아니라</b> 또래 위치·자격 검토·다음 행동입니다. 최종 병역처분은 병역판정검사로 결정됩니다.</p>
+      <div class="form-grid2">
+        <label>신장(cm)<input id="height" type="number" value="174" min="100" max="230" /></label>
+        <label>체중(kg)<input id="weight" type="number" value="68" min="30" max="200" /></label>
+        <label>지방청<select id="cohort"></select></label>
+        <label>전공<input id="majors" type="text" placeholder="예: 컴퓨터공학" /></label>
+        <label>자격·면허<input id="certs" type="text" placeholder="예: 정보처리기사, 토익 900" /></label>
+        <label>관심사<input id="interests" type="text" placeholder="예: 통신, 정비" /></label>
+        <label class="branches">선호 군
+          <span class="checks">
+            <label><input type="checkbox" class="branch" value="육군" />육군</label>
+            <label><input type="checkbox" class="branch" value="해군" />해군</label>
+            <label><input type="checkbox" class="branch" value="공군" />공군</label>
+            <label><input type="checkbox" class="branch" value="해병대" />해병대</label>
+          </span>
+        </label>
+      </div>
+      <div class="actions">
+        <button id="btnCard" class="primary lg">내 준비 카드 만들기</button>
+        <span class="hint">콤마(,)로 여러 개 입력 · 자격은 "보유"만 인정(준비·예정 제외)</span>
+      </div>
+      <div class="notice">⚠ 예측이 아니라 준비를 돕습니다 — 공개데이터 범위 밖이면 숫자를 지어내지 않고 "판단 보류"합니다.</div>
+    </section>
+
+    <!-- 내 준비 카드 (생성 후 표시) -->
+    <section id="card" class="cardwrap" hidden>
+      <div class="cardhead">
+        <h2>나의 병역 준비 카드</h2>
+        <button id="btnPrint" class="ghost">🖨 저장 / 인쇄</button>
+      </div>
+      <div id="cardSummary" class="summary"></div>
+      <div id="cardHealth" class="cardsec"></div>
+      <div id="cardTeukgi" class="cardsec"></div>
+      <div id="cardRoadmap" class="cardsec"></div>
+
+      <div id="cardConsult" class="cardsec">
+        <h3 class="sectitle">④ 더 궁금한 점 — 답하거나, 정직하게 거부</h3>
+        <div class="refusebox">
+          이 카드가 <b>답하지 않는 것</b>: 개인 신체등급 판정 · 합격/면제 예측 · 의학적 진단
+          <span class="muted">(→ 병역판정검사·의료진단 영역. 거부는 막힘이 아니라 안내입니다.)</span>
+        </div>
+        <div class="chips" id="consultExamples">
+          <span class="chip ok" data-q="병역판정검사는 어디서 받나요?">병역판정검사 어디서?</span>
+          <span class="chip ok" data-q="모집병은 어떻게 지원하나요?">모집병 지원 방법</span>
+          <span class="chip bad" data-q="저 현역 갈까요 공익 갈까요?">현역 갈까요? (거부)</span>
+          <span class="chip bad" data-q="제 디스크면 면제 되나요?">디스크면 면제? (거부)</span>
+        </div>
+        <div class="form-row">
+          <textarea id="query" rows="2" placeholder="예: 모집병은 어떻게 지원하나요?"></textarea>
+          <button id="btnConsult" class="primary">질문</button>
+        </div>
+        <div id="consultCat" class="cat"></div>
+        <div id="consultResult" class="result"></div>
+      </div>
+    </section>
+
+    <!-- 담당자(B2G) 보조 패널 -->
+    <section id="adminPanel" class="adminpanel" hidden>
+      <h2>운영자 뷰 (심사·B2G)</h2>
+
+      <h3 class="subhead">① 14지방청 청년건강 히트맵 (B2G)</h3>
+      <p class="sub">병무청 병역판정검사 <b>준-전수(96,360명)</b> 기반 지방청별 통계 — 병무청 정책방향 "청년건강 국가통계화" 직결. (표본조사 KNHANES 아님)</p>
+      <div class="b2gctl">
+        <label>지표
+          <select id="b2gMetric">
+            <option value="bmi">BMI</option>
+            <option value="height">신장</option>
+            <option value="weight">체중</option>
+          </select>
+        </label>
+      </div>
+      <div id="b2gResult" class="result"></div>
+
+      <h3 class="subhead">② 민원 유형 자동 분류 집계</h3>
+      <p class="sub">반복 민원을 유형별로 자동 분류하고, 위험질문(개인판정·예측)을 자동으로 걸러 거부하는 비율을 추정 — FAQ·상담 인력 효율화.</p>
+      <div id="complaintsResult" class="result"></div>
+
+      <h3 class="subhead">③ AI 성능 검증 (AI30 증거)</h3>
+      <p class="sub">사용자 기능이 아니라 <b>직접 만든 검증 문제셋으로 측정한 값</b>입니다.</p>
+      <div id="adminMetrics" class="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>데이터: 병무청 병역판정검사·모집특기·병역이행 등 공공데이터 · 상담 지식은 데모용 시드</span>
+    <details id="trustReport">
+      <summary>🔬 AI 신뢰성·평가 리포트 (심사위원용)</summary>
+      <div id="metricsResult" class="result"></div>
+    </details>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

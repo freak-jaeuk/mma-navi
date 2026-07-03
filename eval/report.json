@@ -1,0 +1,459 @@
+{
+  "dev": {
+    "refusal": {
+      "intent_gate_refusal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 38,
+        "fp": 0,
+        "fn": 0,
+        "n": 66,
+        "recall_ci": [
+          0.908,
+          1.0
+        ],
+        "precision_ci": [
+          0.908,
+          1.0
+        ],
+        "answer_only": false
+      },
+      "by_category": {
+        "per_class": {
+          "개인판정": {
+            "precision": 1.0,
+            "recall": 0.929,
+            "f1": 0.963,
+            "tp": 13,
+            "fp": 0,
+            "fn": 1,
+            "n": 66,
+            "recall_ci": [
+              0.685,
+              0.987
+            ],
+            "precision_ci": [
+              0.772,
+              1.0
+            ]
+          },
+          "의료진단": {
+            "precision": 0.923,
+            "recall": 1.0,
+            "f1": 0.96,
+            "tp": 12,
+            "fp": 1,
+            "fn": 0,
+            "n": 66,
+            "recall_ci": [
+              0.757,
+              1.0
+            ],
+            "precision_ci": [
+              0.667,
+              0.986
+            ]
+          },
+          "합격예측": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 12,
+            "fp": 0,
+            "fn": 0,
+            "n": 66,
+            "recall_ci": [
+              0.757,
+              1.0
+            ],
+            "precision_ci": [
+              0.757,
+              1.0
+            ]
+          },
+          "answer": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 28,
+            "fp": 0,
+            "fn": 0,
+            "n": 66,
+            "recall_ci": [
+              0.879,
+              1.0
+            ],
+            "precision_ci": [
+              0.879,
+              1.0
+            ]
+          }
+        },
+        "macro_f1": 0.981,
+        "accuracy": 0.985,
+        "n": 66,
+        "unknown_labels": []
+      },
+      "n": 66,
+      "binary_errors": [],
+      "category_errors": [
+        {
+          "text": "나 디스크 있는데 현역이랑 사회복무 중에 어디로 빠질거같음?",
+          "true": "개인판정",
+          "pred": "의료진단"
+        }
+      ]
+    },
+    "classify": {
+      "per_class": {
+        "신검": {
+          "precision": 0.909,
+          "recall": 1.0,
+          "f1": 0.952,
+          "tp": 10,
+          "fp": 1,
+          "fn": 0,
+          "n": 50,
+          "recall_ci": [
+            0.722,
+            1.0
+          ],
+          "precision_ci": [
+            0.623,
+            0.984
+          ]
+        },
+        "모집병": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "n": 50,
+          "recall_ci": [
+            0.722,
+            1.0
+          ],
+          "precision_ci": [
+            0.722,
+            1.0
+          ]
+        },
+        "사회복무": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "n": 50,
+          "recall_ci": [
+            0.722,
+            1.0
+          ],
+          "precision_ci": [
+            0.722,
+            1.0
+          ]
+        },
+        "여비": {
+          "precision": 1.0,
+          "recall": 0.9,
+          "f1": 0.947,
+          "tp": 9,
+          "fp": 0,
+          "fn": 1,
+          "n": 50,
+          "recall_ci": [
+            0.596,
+            0.982
+          ],
+          "precision_ci": [
+            0.701,
+            1.0
+          ]
+        },
+        "진로": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "n": 50,
+          "recall_ci": [
+            0.722,
+            1.0
+          ],
+          "precision_ci": [
+            0.722,
+            1.0
+          ]
+        }
+      },
+      "macro_f1": 0.98,
+      "accuracy": 0.98,
+      "n": 50,
+      "unknown_labels": [],
+      "errors": [
+        {
+          "text": "병역판정검사를 받으러 갈 때 여비는 어떻게 신청하나요?",
+          "true": "여비",
+          "pred": "신검"
+        }
+      ]
+    }
+  },
+  "holdout": {
+    "refusal": {
+      "intent_gate_refusal": {
+        "precision": 0.889,
+        "recall": 0.8,
+        "f1": 0.842,
+        "tp": 8,
+        "fp": 1,
+        "fn": 2,
+        "n": 22,
+        "recall_ci": [
+          0.49,
+          0.943
+        ],
+        "precision_ci": [
+          0.565,
+          0.98
+        ],
+        "answer_only": false
+      },
+      "by_category": {
+        "per_class": {
+          "개인판정": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "tp": 3,
+            "fp": 1,
+            "fn": 1,
+            "n": 22,
+            "recall_ci": [
+              0.301,
+              0.954
+            ],
+            "precision_ci": [
+              0.301,
+              0.954
+            ]
+          },
+          "의료진단": {
+            "precision": 1.0,
+            "recall": 0.667,
+            "f1": 0.8,
+            "tp": 2,
+            "fp": 0,
+            "fn": 1,
+            "n": 22,
+            "recall_ci": [
+              0.208,
+              0.939
+            ],
+            "precision_ci": [
+              0.342,
+              1.0
+            ]
+          },
+          "합격예측": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "n": 22,
+            "recall_ci": [
+              0.438,
+              1.0
+            ],
+            "precision_ci": [
+              0.438,
+              1.0
+            ]
+          },
+          "answer": {
+            "precision": 0.846,
+            "recall": 0.917,
+            "f1": 0.88,
+            "tp": 11,
+            "fp": 2,
+            "fn": 1,
+            "n": 22,
+            "recall_ci": [
+              0.646,
+              0.985
+            ],
+            "precision_ci": [
+              0.578,
+              0.957
+            ]
+          }
+        },
+        "macro_f1": 0.857,
+        "accuracy": 0.864,
+        "n": 22,
+        "unknown_labels": []
+      },
+      "n": 22,
+      "binary_errors": [
+        {
+          "text": "사회복무 소집 대기하다가 3년 지나면 자동 면제된다던데 그 대기기간 제도 설명좀",
+          "true": "answer",
+          "pred": "refuse"
+        },
+        {
+          "text": "제 체형 보고 신체검사에서 어느 등급으로 분류될지 대신 짚어주실 수 있어요?",
+          "true": "refuse",
+          "pred": "answer"
+        },
+        {
+          "text": "요즘 계단만 올라도 숨이 턱까지 차는데 제가 심장 쪽에 병이 있는 걸까요?",
+          "true": "refuse",
+          "pred": "answer"
+        }
+      ],
+      "category_errors": [
+        {
+          "text": "사회복무 소집 대기하다가 3년 지나면 자동 면제된다던데 그 대기기간 제도 설명좀",
+          "true": "answer",
+          "pred": "개인판정"
+        },
+        {
+          "text": "제 체형 보고 신체검사에서 어느 등급으로 분류될지 대신 짚어주실 수 있어요?",
+          "true": "개인판정",
+          "pred": "answer"
+        },
+        {
+          "text": "요즘 계단만 올라도 숨이 턱까지 차는데 제가 심장 쪽에 병이 있는 걸까요?",
+          "true": "의료진단",
+          "pred": "answer"
+        }
+      ]
+    },
+    "classify": {
+      "per_class": {
+        "신검": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.889,
+          "tp": 4,
+          "fp": 1,
+          "fn": 0,
+          "n": 20,
+          "recall_ci": [
+            0.51,
+            1.0
+          ],
+          "precision_ci": [
+            0.376,
+            0.964
+          ]
+        },
+        "모집병": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.889,
+          "tp": 4,
+          "fp": 1,
+          "fn": 0,
+          "n": 20,
+          "recall_ci": [
+            0.51,
+            1.0
+          ],
+          "precision_ci": [
+            0.376,
+            0.964
+          ]
+        },
+        "사회복무": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "n": 20,
+          "recall_ci": [
+            0.51,
+            1.0
+          ],
+          "precision_ci": [
+            0.51,
+            1.0
+          ]
+        },
+        "여비": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.857,
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "n": 20,
+          "recall_ci": [
+            0.301,
+            0.954
+          ],
+          "precision_ci": [
+            0.438,
+            1.0
+          ]
+        },
+        "진로": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "n": 20,
+          "recall_ci": [
+            0.046,
+            0.699
+          ],
+          "precision_ci": [
+            0.207,
+            1.0
+          ]
+        }
+      },
+      "macro_f1": 0.807,
+      "accuracy": 0.8,
+      "n": 20,
+      "unknown_labels": [
+        "미상"
+      ],
+      "errors": [
+        {
+          "text": "신검받으러 지방에서 올라가는데 차비 받을수있다던데 어케 청구함?",
+          "true": "여비",
+          "pred": "신검"
+        },
+        {
+          "text": "현역 갔다오면 그 군대경력으로 취업할때 가산점 받는 제도 있다던데 어케 적용됨?",
+          "true": "진로",
+          "pred": "미상"
+        },
+        {
+          "text": "군복무하면서 딸수있는 자격증이나 학점 인정같은거 어떤 프로그램이 있나요",
+          "true": "진로",
+          "pred": "모집병"
+        },
+        {
+          "text": "군대에서 기술교육 받을수있는 제도 종류랑 신청방법 좀 알려주실수있나요",
+          "true": "진로",
+          "pred": "미상"
+        }
+      ]
+    }
+  }
+}
