@@ -1,7 +1,14 @@
-# 코어(백분위 엔진): 표준 라이브러리만 — 추가 설치 불필요
+# 병역 길잡이 — 런타임 의존성
 #
-# 다음 단계(추후 추가):
-#   requests            # data.go.kr 오픈API 호출
-#   fastapi, uvicorn    # 백엔드 서빙
-#   FlagEmbedding       # bge-m3 임베딩 (상담 RAG)
-#   (로컬 LLM 서빙은 기존 SGLang/litellm 환경 재사용)
+# 코어 백분위 엔진(percentile.py)은 표준 라이브러리만 사용한다.
+# 아래는 웹 데모 서버(FastAPI) + 특기 의미랭킹(numpy)을 위한 최소 의존성이다.
+# 이 파일만으로 MMA_RAG=mock 모드가 키·GPU 없이 동작한다(라이브 데모 기본).
+
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0
+numpy>=1.24
+
+# bge-m3 임베딩(특기 semantic 랭킹·bge-extractive 상담)을 켜려면:
+#   pip install -r requirements-ml.txt
+# 로컬 Qwen 생성(MMA_RAG=bge-llm, 헤드라인 0.909 재현)은 별도 GPU + LLM 서빙 필요.

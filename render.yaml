@@ -1,0 +1,16 @@
+# 병역 길잡이 — Render 무료 배포 (mock 모드, 초경량·GPU/키 불필요)
+# Render 대시보드 → New → Blueprint → 이 저장소 선택.
+# mock 모드라 모델 로드 없이 즉시 기동. 백분위·특기·로드맵·상담(데모) 동작.
+# 특기 semantic 랭킹까지 필요하면 Hugging Face Spaces + Dockerfile 경로 사용.
+services:
+  - type: web
+    name: byeongyeok-giljabi
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/run_server.py --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MMA_RAG
+        value: mock
+      - key: PYTHON_VERSION
+        value: "3.11"

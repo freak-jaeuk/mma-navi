@@ -1,0 +1,12 @@
+# 병역 길잡이 — bge-m3 임베딩 의존성 (선택)
+#
+# 특기 의미랭킹(MMA_TEUKGI_SEM=1)과 근거검색 상담(MMA_RAG=bge-extractive)을 켤 때만 필요.
+# CPU로 동작하며(16GB RAM 권장, 예: Hugging Face Spaces CPU), GPU 불필요.
+# 먼저 requirements.txt 설치 후 이 파일을 설치한다.
+
+-r requirements.txt
+
+# CPU 전용 torch (GPU 빌드 회피 — 용량·호환성). CUDA 필요 시 이 줄 제거.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.1
+transformers>=4.40

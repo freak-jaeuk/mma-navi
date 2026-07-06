@@ -1,0 +1,18 @@
+# 시크릿 — 절대 이미지에 포함 금지
+.env
+*.key
+secrets/
+
+# 파이썬
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 원시 microdata 캐시만 제외(런타임 불필요, 4MB). teukgi_emb.npz(semantic 캐시)는 포함.
+data/cache/*.csv
+*.log
+
+# 개발 산출물
+.git/
+.vscode/
+runs/
