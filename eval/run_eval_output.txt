@@ -1,0 +1,11 @@
+=== AI30 메트릭 (intent 게이트 + 분류기) ===
+※ 거부=intent_gate 단독 성능(RAG end-to-end 아님). dev=튜닝사용 / held-out=일반화 추정
+
+[dev     ] 의도 거부게이트 (n=66, refuse=38): P=1.0 R=1.0 [95%CI 0.908~1.0] F1=1.0 fp=0 fn=0
+        사유 macro-F1=0.981
+[dev     ] 민원 분류 (n=50): acc=0.98 macro-F1=0.98
+[held-out] 의도 거부게이트 (n=22, refuse=10): P=0.889 R=0.8 [95%CI 0.49~0.943] F1=0.842 fp=1 fn=2
+        사유 macro-F1=0.857
+[held-out] 민원 분류 (n=20): acc=0.8 macro-F1=0.807 / 미상=['미상']
+
+리포트 저장: /home/kimjw/workspace/mma-contest/scripts/../eval/report.json
