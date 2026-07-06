@@ -4,7 +4,7 @@
 > 2026 병무청·방위사업청·질병관리청 합동 공공데이터·AI 경진대회 · 제품·서비스 개발 부문
 
 > **🔎 심사위원용 빠른 확인** — 별도 API 키·GPU 없이 라이브 데모에서 주요 기능을 확인할 수 있습니다.
-> 라이브 데모 `[배포 후 기입]` · 데모 영상 `[업로드 후 기입]` · 측정 결과 [`eval/RESULTS.md`](eval/RESULTS.md)
+> 라이브 데모 **https://huggingjaeuk-byeongyeok-giljabi.hf.space** · 데모 영상 `[업로드 후 기입]` · 측정 결과 [`eval/RESULTS.md`](eval/RESULTS.md)
 
 ## 1. 서비스 한 줄 정의
 
@@ -13,7 +13,7 @@ AI 도우미. 병역처분을 **예측하지 않고**, 근거가 부족하면 **
 
 ## 2. 데모 영상
 
-- **라이브 데모**: `[배포 후 기입]` (무료·GPU無 배포법 → [`deploy/`](deploy/README.md))
+- **라이브 데모**: https://huggingjaeuk-byeongyeok-giljabi.hf.space (무료·GPU無 · HF Spaces CPU · 배포법 [`deploy/`](deploy/README.md))
 - **데모 영상**(유튜브 미등록): `[업로드 후 기입]` (90초 샷 리스트 → [`docs/데모_영상_시나리오.md`](docs/데모_영상_시나리오.md))
 
 ## 3. 핵심 차별점 — 예측하지 않고 거부하는 AI
