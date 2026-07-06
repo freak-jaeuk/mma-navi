@@ -7,11 +7,7 @@ secrets/
 __pycache__/
 *.pyc
 
-# 캐시 데이터
-data/cache/
-data/teukgi_index.json
-data/bmgg_by_region.json
-data/sojip_plan.json
-data/jeopsu_rate.json
-data/gongseok_by_region.json
-data/jinro_centers.json
+# 원시 microdata 캐시만 제외(런타임 불필요, 4MB).
+# 데모용 프리빌드 인덱스(teukgi_index.json, cache/teukgi_emb.npz, 로드맵 집계 JSON)는
+# 키·GPU 없이 라이브 데모/클론 실행이 되도록 저장소에 포함한다.
+data/cache/*.csv
