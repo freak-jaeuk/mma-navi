@@ -1,5 +1,4 @@
-# HF Space용 Dockerfile — 빌드 시 공개 GitHub repo를 clone(데이터 인덱스 포함).
-# HF Space에는 이 파일 + README.md 2개만 두면 되고, 코드·데이터는 GitHub에서 당겨온다.
+# HF Space용 Dockerfile — 빌드 시 GitHub repo clone + bge-m3 미리 캐시(런타임 다운로드 제거).
 FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends git \
@@ -15,9 +14,12 @@ ENV HF_HOME=/app/.cache/hf \
     MMA_EMBED_DEVICE=cpu \
     PORT=7860
 
-RUN pip install --no-cache-dir -r requirements-ml.txt \
-    && mkdir -p /app/.cache/hf && chmod -R 777 /app/.cache
+RUN pip install --no-cache-dir -r requirements-ml.txt
+# bge-m3(약 2GB)를 빌드 때 이미지에 캐시 — HF 런타임 egress 없이 동작
+RUN python -c "from huggingface_hub import snapshot_download; snapshot_download('BAAI/bge-m3')"
+# 이후 런타임은 오프라인 캐시만 사용(연결 시도로 인한 지연·실패 방지)
+ENV HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+RUN mkdir -p /app/.cache/hf && chmod -R 777 /app/.cache
 
 EXPOSE 7860
-# 첫 요청에서 bge-m3 로드(HF 허브 내부망이라 빠름). 이후 캐시.
 CMD python scripts/run_server.py --host 0.0.0.0 --port ${PORT:-7860}
